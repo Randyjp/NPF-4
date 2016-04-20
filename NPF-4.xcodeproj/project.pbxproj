@@ -13,6 +13,13 @@
 		F43A3AA61CC6E69700D27285 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F43A3AA41CC6E69700D27285 /* Main.storyboard */; };
 		F43A3AA81CC6E69700D27285 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F43A3AA71CC6E69700D27285 /* Assets.xcassets */; };
 		F43A3AAB1CC6E69700D27285 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F43A3AA91CC6E69700D27285 /* LaunchScreen.storyboard */; };
+		F43A3AB41CC6E7B700D27285 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43A3AB31CC6E7B700D27285 /* CoreLocation.framework */; };
+		F43A3AB61CC6E7BF00D27285 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43A3AB51CC6E7BF00D27285 /* MapKit.framework */; };
+		F43A3ABC1CC6E89700D27285 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = F43A3ABB1CC6E89700D27285 /* data.plist */; };
+		F43A3ABE1CC6E8DD00D27285 /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A3ABD1CC6E8DD00D27285 /* Park.swift */; };
+		F43A3AC01CC6EB5200D27285 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A3ABF1CC6EB5200D27285 /* MapVC.swift */; };
+		F43A3AC21CC6F14E00D27285 /* Parks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A3AC11CC6F14E00D27285 /* Parks.swift */; };
+		F43A3AC41CC7106300D27285 /* Star-50.png in Resources */ = {isa = PBXBuildFile; fileRef = F43A3AC31CC7106300D27285 /* Star-50.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +31,13 @@
 		F43A3AA71CC6E69700D27285 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F43A3AAA1CC6E69700D27285 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F43A3AAC1CC6E69700D27285 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F43A3AB31CC6E7B700D27285 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F43A3AB51CC6E7BF00D27285 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F43A3ABB1CC6E89700D27285 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
+		F43A3ABD1CC6E8DD00D27285 /* Park.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
+		F43A3ABF1CC6EB5200D27285 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		F43A3AC11CC6F14E00D27285 /* Parks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parks.swift; sourceTree = "<group>"; };
+		F43A3AC31CC7106300D27285 /* Star-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Star-50.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F43A3AB61CC6E7BF00D27285 /* MapKit.framework in Frameworks */,
+				F43A3AB41CC6E7B700D27285 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +72,10 @@
 		F43A3A9D1CC6E69700D27285 /* NPF-4 */ = {
 			isa = PBXGroup;
 			children = (
+				F43A3ABA1CC6E85D00D27285 /* Resources */,
+				F43A3AB91CC6E80100D27285 /* View Controllers */,
+				F43A3AB81CC6E7E800D27285 /* Models */,
+				F43A3AB21CC6E78C00D27285 /* Frameworks */,
 				F43A3A9E1CC6E69700D27285 /* AppDelegate.swift */,
 				F43A3AA01CC6E69700D27285 /* FirstViewController.swift */,
 				F43A3AA21CC6E69700D27285 /* SecondViewController.swift */,
@@ -65,6 +85,41 @@
 				F43A3AAC1CC6E69700D27285 /* Info.plist */,
 			);
 			path = "NPF-4";
+			sourceTree = "<group>";
+		};
+		F43A3AB21CC6E78C00D27285 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F43A3AB51CC6E7BF00D27285 /* MapKit.framework */,
+				F43A3AB31CC6E7B700D27285 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F43A3AB81CC6E7E800D27285 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F43A3AC11CC6F14E00D27285 /* Parks.swift */,
+				F43A3ABD1CC6E8DD00D27285 /* Park.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		F43A3AB91CC6E80100D27285 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F43A3ABF1CC6EB5200D27285 /* MapVC.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		F43A3ABA1CC6E85D00D27285 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F43A3AC31CC7106300D27285 /* Star-50.png */,
+				F43A3ABB1CC6E89700D27285 /* data.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,8 +181,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F43A3AC41CC7106300D27285 /* Star-50.png in Resources */,
 				F43A3AAB1CC6E69700D27285 /* LaunchScreen.storyboard in Resources */,
 				F43A3AA81CC6E69700D27285 /* Assets.xcassets in Resources */,
+				F43A3ABC1CC6E89700D27285 /* data.plist in Resources */,
 				F43A3AA61CC6E69700D27285 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,9 +196,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F43A3AC01CC6EB5200D27285 /* MapVC.swift in Sources */,
 				F43A3AA31CC6E69700D27285 /* SecondViewController.swift in Sources */,
 				F43A3A9F1CC6E69700D27285 /* AppDelegate.swift in Sources */,
 				F43A3AA11CC6E69700D27285 /* FirstViewController.swift in Sources */,
+				F43A3ABE1CC6E8DD00D27285 /* Park.swift in Sources */,
+				F43A3AC21CC6F14E00D27285 /* Parks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
