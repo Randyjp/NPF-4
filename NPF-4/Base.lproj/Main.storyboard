@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Maps-->
@@ -17,14 +18,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Evx-i6-94z">
-                                <rect key="frame" x="213" y="226" width="240" height="128"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Evx-i6-94z">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                             </mapView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="g00-S0-fOo">
+                                <rect key="frame" x="282" y="257" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VcT-ir-TnI">
+                                <rect key="frame" x="0.0" y="498" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="3Xl-V3-MmJ"/>
+                                    <constraint firstAttribute="width" constant="32" id="Ud5-Y2-eCs"/>
+                                </constraints>
+                                <state key="normal" image="plus.png"/>
+                                <connections>
+                                    <action selector="refresh:" destination="9pv-A4-QxB" eventType="touchUpInside" id="nAT-FY-RI9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3B3-o6-QNB">
+                                <rect key="frame" x="35" y="498" width="86" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="86" id="RhZ-nT-QEs"/>
+                                    <constraint firstAttribute="height" constant="32" id="Tva-1E-4cp"/>
+                                </constraints>
+                                <state key="normal" image="less.png"/>
+                                <connections>
+                                    <action selector="zoomOut:" destination="9pv-A4-QxB" eventType="touchUpInside" id="oAi-gv-Ry4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="VcT-ir-TnI" secondAttribute="bottom" constant="21" id="4eS-Rw-Seu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Evx-i6-94z" secondAttribute="trailing" constant="-20" id="9dV-65-o1q"/>
+                            <constraint firstItem="VcT-ir-TnI" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="DRK-na-HRG"/>
+                            <constraint firstItem="3B3-o6-QNB" firstAttribute="leading" secondItem="VcT-ir-TnI" secondAttribute="trailing" constant="3" id="NsH-bD-dja"/>
+                            <constraint firstItem="Evx-i6-94z" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="-20" id="P5R-34-dun"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="3B3-o6-QNB" secondAttribute="bottom" constant="21" id="ZpS-hC-duQ"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Evx-i6-94z" secondAttribute="bottom" id="cE8-y9-I4K"/>
+                            <constraint firstItem="Evx-i6-94z" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="tlp-Ph-KFi"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Maps" image="I" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Maps" image="location.png" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="activity" destination="g00-S0-fOo" id="aSg-ol-aTh"/>
+                        <outlet property="btnRefresh" destination="VcT-ir-TnI" id="WU3-8a-Tu5"/>
                         <outlet property="mapView" destination="Evx-i6-94z" id="WsS-6F-fKG"/>
                     </connections>
                 </viewController>
@@ -45,7 +83,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorties" image="Star-50.png" id="RkT-gi-pae"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Favorties" image="shape.png" id="RkT-gi-pae"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5th-1B-DmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -64,7 +102,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About" id="HRY-cy-4Hh"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="About" image="business.png" id="HRY-cy-4Hh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6k-iS-R9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,7 +142,7 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Parks" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Parks" image="nature.png" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -133,8 +171,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="I" width="10" height="20"/>
-        <image name="Star-50.png" width="50" height="50"/>
-        <image name="second" width="30" height="30"/>
+        <image name="business.png" width="24" height="24"/>
+        <image name="less.png" width="32" height="32"/>
+        <image name="location.png" width="24" height="24"/>
+        <image name="nature.png" width="24" height="24"/>
+        <image name="plus.png" width="32" height="32"/>
+        <image name="shape.png" width="24" height="24"/>
     </resources>
 </document>
