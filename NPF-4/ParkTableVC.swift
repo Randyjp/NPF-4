@@ -54,8 +54,10 @@ class ParkTableVC: UITableViewController {
 
         // Configure the cell...
         let park = parks[indexPath.row]
+        let distance = mapVC?.locationManager?.location?.distanceFromLocation(park.getLocation()!)
+        
         cell.textLabel?.text = park.getParkName()
-        cell.detailTextLabel?.text = park.getLink() //subtitle for now gotta change to distance
+        cell.detailTextLabel?.text = convertStringMetersToMiles((distance?.description)!) + " miles" //subtitle for now gotta change to distance
         cell.accessoryType = .DisclosureIndicator
         return cell
     }
@@ -105,5 +107,11 @@ class ParkTableVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func convertStringMetersToMiles(distance:String) -> String {
+        let meterDistance = Double(distance)
+        let milesDistance = round(meterDistance! * 0.00062137)
+        return String(milesDistance)
+    }
 
 }

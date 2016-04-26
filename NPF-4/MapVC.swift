@@ -189,5 +189,6 @@ class MapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
         startUpdating()
     }
     
+    
 
 }

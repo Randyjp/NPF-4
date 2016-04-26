@@ -108,7 +108,7 @@
             </objects>
             <point key="canvasLocation" x="142" y="813"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Park TableVC-->
         <scene sceneID="lYM-FR-Qfh">
             <objects>
                 <tableViewController id="eFb-QY-yMi" customClass="ParkTableVC" customModule="NPF_4" customModuleProvider="target" sceneMemberID="viewController">
@@ -147,7 +147,7 @@
                             <outlet property="delegate" destination="eFb-QY-yMi" id="vAx-LQ-p2Z"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="vZz-yF-27B"/>
+                    <navigationItem key="navigationItem" id="vZz-yF-27B"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Deg-1e-7x2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
