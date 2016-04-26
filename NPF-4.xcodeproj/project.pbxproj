@@ -26,6 +26,7 @@
 		F43A3B191CCE9D5500D27285 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = F43A3B181CCE9D5500D27285 /* search.png */; };
 		F43A3B1B1CCEA9F900D27285 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = F43A3B1A1CCEA9F900D27285 /* plus.png */; };
 		F43A3B1D1CCEAABF00D27285 /* less.png in Resources */ = {isa = PBXBuildFile; fileRef = F43A3B1C1CCEAABF00D27285 /* less.png */; };
+		F43A3B1F1CCEE20B00D27285 /* ParkTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A3B1E1CCEE20B00D27285 /* ParkTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		F43A3B181CCE9D5500D27285 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		F43A3B1A1CCEA9F900D27285 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		F43A3B1C1CCEAABF00D27285 /* less.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = less.png; sourceTree = "<group>"; };
+		F43A3B1E1CCEE20B00D27285 /* ParkTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				F43A3ABF1CC6EB5200D27285 /* MapVC.swift */,
+				F43A3B1E1CCEE20B00D27285 /* ParkTableVC.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F43A3B1F1CCEE20B00D27285 /* ParkTableVC.swift in Sources */,
 				F43A3AC01CC6EB5200D27285 /* MapVC.swift in Sources */,
 				F43A3AA31CC6E69700D27285 /* SecondViewController.swift in Sources */,
 				F43A3A9F1CC6E69700D27285 /* AppDelegate.swift in Sources */,

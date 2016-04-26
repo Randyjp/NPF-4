@@ -22,6 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarController = self.window?.rootViewController as? UITabBarController //I know the first viewcontroller is the tabBarController
         let mapVC = tabBarController!.viewControllers![0] as! MapVC
         mapVC.parks = parks
+        
+        let navVc = tabBarController!.viewControllers![1] as! UINavigationController //getting the second controller with is the nav controller
+        let tableVC = navVc.viewControllers[0] as! ParkTableVC //getting the first viewcontroller of navVC and making it a park table
+        tableVC.parks = parks
+        tableVC.mapVC = mapVC
         return true
     }
 
