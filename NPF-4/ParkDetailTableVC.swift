@@ -62,10 +62,16 @@ class ParkDetailTableVC: UITableViewController {
             cell = UITableViewCell(style: .Default, reuseIdentifier: "reuseIdentifier")
         }
         
-        cell?.textLabel?.numberOfLines = 0
-        cell?.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        cell?.textLabel?.text = dataSource[indexPath.section][indexPath.row]
-        cell?.textLabel?.textAlignment = .Center
+        if indexPath.section == IMG_SECTION {
+            let url = NSURL(string: dataSource[indexPath.section][indexPath.row])
+            let data = NSData(contentsOfURL: url!)
+            cell?.imageView?.image  = UIImage(data: data!)
+        } else {
+            cell?.textLabel?.numberOfLines = 0
+            cell?.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            cell?.textLabel?.text = dataSource[indexPath.section][indexPath.row]
+            cell?.textLabel?.textAlignment = .Center
+        }
         
         return cell!
     }
@@ -96,6 +102,8 @@ class ParkDetailTableVC: UITableViewController {
         switch indexPath.section {
         case DESC_SECTION:
             return 88
+        case IMG_SECTION:
+            return 176
         default:
             return 44
         }

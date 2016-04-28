@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F42BC3A61CCF42FC00541A40 /* ParkDetailTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42BC3A51CCF42FC00541A40 /* ParkDetailTableVC.swift */; };
-		F42BC3CA1CD15D9000541A40 /* DetailCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42BC3C91CD15D9000541A40 /* DetailCellVC.swift */; };
 		F42BC3CC1CD1877400541A40 /* ZoomingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42BC3CB1CD1877400541A40 /* ZoomingProtocol.swift */; };
+		F42BC3CE1CD1BC2C00541A40 /* FavoritesTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42BC3CD1CD1BC2C00541A40 /* FavoritesTableVC.swift */; };
 		F43A3A9F1CC6E69700D27285 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A3A9E1CC6E69700D27285 /* AppDelegate.swift */; };
 		F43A3AA11CC6E69700D27285 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A3AA01CC6E69700D27285 /* FirstViewController.swift */; };
 		F43A3AA31CC6E69700D27285 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A3AA21CC6E69700D27285 /* SecondViewController.swift */; };
@@ -34,8 +34,8 @@
 
 /* Begin PBXFileReference section */
 		F42BC3A51CCF42FC00541A40 /* ParkDetailTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkDetailTableVC.swift; sourceTree = "<group>"; };
-		F42BC3C91CD15D9000541A40 /* DetailCellVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCellVC.swift; sourceTree = "<group>"; };
 		F42BC3CB1CD1877400541A40 /* ZoomingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomingProtocol.swift; sourceTree = "<group>"; };
+		F42BC3CD1CD1BC2C00541A40 /* FavoritesTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableVC.swift; sourceTree = "<group>"; };
 		F43A3A9B1CC6E69700D27285 /* NPF-4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NPF-4.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43A3A9E1CC6E69700D27285 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F43A3AA01CC6E69700D27285 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 				F43A3ABF1CC6EB5200D27285 /* MapVC.swift */,
 				F43A3B1E1CCEE20B00D27285 /* ParkTableVC.swift */,
 				F42BC3A51CCF42FC00541A40 /* ParkDetailTableVC.swift */,
-				F42BC3C91CD15D9000541A40 /* DetailCellVC.swift */,
+				F42BC3CD1CD1BC2C00541A40 /* FavoritesTableVC.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -235,12 +235,12 @@
 				F43A3B1F1CCEE20B00D27285 /* ParkTableVC.swift in Sources */,
 				F43A3AC01CC6EB5200D27285 /* MapVC.swift in Sources */,
 				F43A3AA31CC6E69700D27285 /* SecondViewController.swift in Sources */,
-				F42BC3CA1CD15D9000541A40 /* DetailCellVC.swift in Sources */,
 				F43A3A9F1CC6E69700D27285 /* AppDelegate.swift in Sources */,
 				F42BC3CC1CD1877400541A40 /* ZoomingProtocol.swift in Sources */,
 				F42BC3A61CCF42FC00541A40 /* ParkDetailTableVC.swift in Sources */,
 				F43A3AA11CC6E69700D27285 /* FirstViewController.swift in Sources */,
 				F43A3ABE1CC6E8DD00D27285 /* Park.swift in Sources */,
+				F42BC3CE1CD1BC2C00541A40 /* FavoritesTableVC.swift in Sources */,
 				F43A3AC21CC6F14E00D27285 /* Parks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

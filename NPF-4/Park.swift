@@ -12,7 +12,7 @@ import MapKit
 import AddressBook
 import Contacts
 //mk anmotation is part of mapkit
-class Park: NSObject, NSCoding, MKAnnotation {
+class Park: NSObject, MKAnnotation {
     
 
     private var parkName: String = ""

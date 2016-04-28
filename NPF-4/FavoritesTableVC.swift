@@ -1,29 +1,27 @@
 //
-//  ParkTableVC.swift
+//  FavoritesTableVC.swift
 //  NPF-4
 //
-//  Created by Randy Perez on 4/25/16.
+//  Created by Randy Perez on 4/27/16.
 //  Copyright © 2016 Randy Perez. All rights reserved.
 //
 
 import UIKit
 
-class ParkTableVC: UITableViewController {
+class FavoritesTableVC: UITableViewController {
     
-    var mapVC:MapVC!
-    var parkList = Parks()
-    var parks : [Park] {
-        get  {
-            return self.parkList.parkList!
-        }
-        set(val) {
-            self.parkList.parkList = val
-        }
-    }
+    var parks: [Park]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let decoded  = defaults.objectForKey("Acadia National Park") as! NSData
+        let decodedTeams = NSKeyedUnarchiver.unarchiveObjectWithData(decoded) as! Park
+        print(decodedTeams)
+        print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation())//        if let name = defaults.objectForKey("Acadia National Park") as! NSData {
+//            let decodedTeams = NSKeyedUnarchiver.unarchiveObjectWithData(name) as! [Park]
+//            print(name)
+//        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,28 +38,23 @@ class ParkTableVC: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1 //I just have one section so far 
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return parks.count // need a row for each park
+        return 0
     }
 
-    
+    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ParkCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
 
         // Configure the cell...
-        let park = parks[indexPath.row]
-        let distance = mapVC?.locationManager?.location?.distanceFromLocation(park.getLocation()!)
-        
-        cell.textLabel?.text = park.getParkName()
-        cell.detailTextLabel?.text = convertStringMetersToMiles((distance?.description)!) + " miles" //subtitle for now gotta change to distance
-        cell.accessoryType = .DisclosureIndicator
+
         return cell
     }
- 
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -107,34 +100,5 @@ class ParkTableVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    func convertStringMetersToMiles(distance:String) -> String {
-        let meterDistance = Double(distance)
-        let milesDistance = round(meterDistance! * 0.00062137)
-        return String(milesDistance)
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let park = parks[indexPath.row]
-        let ds: [[String]] = [[park.getParkName(),park.getParkLocation(), park.getArea(), "Date Formed: " + park.getDateFormed()], [park.getImageLink()], [park.getParkDescription()], [park.getLink()], ["Show MAP"], ["Add to Favorites"]]
-        let detailVC = ParkDetailTableVC(style: .Grouped)
-        detailVC.title = park.getParkName()
-        detailVC.park = park
-        detailVC.dataSource = ds
-        detailVC.zoomDelegate = mapVC
-        navigationController?.pushViewController(detailVC, animated: true)
-    }
 
-    @IBAction func sortDistance(sender: AnyObject) {
-        
-    }
-    @IBAction func sortZA(sender: AnyObject) {
-        parks.sortInPlace({$0.getParkName() > $1.getParkName()})
-        self.tableView.reloadData()
-    }
-    
-    @IBAction func sortAZ(sender: AnyObject) {
-        parks.sortInPlace({$0.getParkName() < $1.getParkName()})
-        self.tableView.reloadData()
-    }
 }
