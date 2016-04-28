@@ -84,9 +84,20 @@ class ParkDetailTableVC: UITableViewController {
         case URL_SECTION:
             UIApplication.sharedApplication().openURL(NSURL(string: park.getLink())!)
         case FAV_SECTION:
-            let defaults = NSUserDefaults.standardUserDefaults()
-            let encondedObj = NSKeyedArchiver.archivedDataWithRootObject(park)
-            defaults.setObject(encondedObj, forKey: park.getParkName())
+//            let defaults = NSUserDefaults.standardUserDefaults()
+//            let encondedObj = NSKeyedArchiver.archivedDataWithRootObject(park)
+//            defaults.setObject(encondedObj, forKey: park.getParkName())
+            var array = NSUserDefaults.standardUserDefaults().arrayForKey("favorites") as? [String]
+            
+            if array != nil {
+                if !array!.contains(park.getParkName()) {
+                    array!.append(park.getParkName())
+                }
+            } else {
+                array = []
+            }
+            
+            NSUserDefaults.standardUserDefaults().setObject(array, forKey: "favorites")
             
             let alert  = UIAlertController(title: "Favorites", message: "\(park.getParkName()) was added to Favorites", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))

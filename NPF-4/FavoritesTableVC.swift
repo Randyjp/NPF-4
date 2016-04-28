@@ -14,11 +14,15 @@ class FavoritesTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let decoded  = defaults.objectForKey("Acadia National Park") as! NSData
-        let decodedTeams = NSKeyedUnarchiver.unarchiveObjectWithData(decoded) as! Park
-        print(decodedTeams)
-        print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation())//        if let name = defaults.objectForKey("Acadia National Park") as! NSData {
+        let array = NSUserDefaults.standardUserDefaults().arrayForKey("favorites") as? [String]
+        for p in array! {
+            print(p)
+        }
+//        let defaults = NSUserDefaults.standardUserDefaults()
+//        let decoded  = defaults.objectForKey("Acadia National Park") as! NSData
+//        let decodedTeams = NSKeyedUnarchiver.unarchiveObjectWithData(decoded) as! Park
+//        print(decodedTeams)
+//        print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation())//        if let name = defaults.objectForKey("Acadia National Park") as! NSData {
 //            let decodedTeams = NSKeyedUnarchiver.unarchiveObjectWithData(name) as! [Park]
 //            print(name)
 //        }
