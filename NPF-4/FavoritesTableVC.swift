@@ -10,7 +10,16 @@ import UIKit
 
 class FavoritesTableVC: UITableViewController {
     
-    var parks: [Park]?
+    var mapVC:MapVC!
+    var parkList = Parks()
+    var parks : [Park] {
+        get  {
+            return self.parkList.parkList!
+        }
+        set(val) {
+            self.parkList.parkList = val
+        }
+    }
     var favorites:[String]?
     
     override func viewDidLoad() {
@@ -66,7 +75,22 @@ class FavoritesTableVC: UITableViewController {
         return cell
     }
 
-
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let parkName = favorites![indexPath.row]
+        
+        let park = parks.filter{ $0.getParkName() == parkName }.first
+        
+        let ds: [[String]] = [[park!.getParkName(),park!.getParkLocation(), park!.getArea(), "Date Formed: " + park!.getDateFormed()], [park!.getImageLink()], [park!.getParkDescription()], [park!.getLink()], ["Show MAP"], ["Add to Favorites"]]
+        let detailVC = ParkDetailTableVC(style: .Grouped)
+        detailVC.title = park!.getParkName()
+        detailVC.park = park
+        detailVC.dataSource = ds
+        detailVC.zoomDelegate = mapVC
+        navigationController?.pushViewController(detailVC, animated: true)
+        
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

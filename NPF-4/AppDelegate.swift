@@ -27,6 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tableVC = navVc.viewControllers[0] as! ParkTableVC //getting the first viewcontroller of navVC and making it a park table
         tableVC.parks = parks
         tableVC.mapVC = mapVC
+        
+        
+        let navVcFav = tabBarController!.viewControllers![2] as! UINavigationController //getting the second controller with is the nav controller
+        let tableVCFav = navVcFav.viewControllers[0] as! FavoritesTableVC //getting the first viewcontroller of navVC and making it a favorite table
+        tableVCFav.parks = parks
+        tableVCFav.mapVC = mapVC
         return true
     }
 
@@ -84,9 +90,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
             //check to see if the parks were created correctly
-            for p in parks {
-                print("Park: \(p)")
-            }
+//            for p in parks {
+//                print("Park: \(p)")
+//            }
         }
     }
 
