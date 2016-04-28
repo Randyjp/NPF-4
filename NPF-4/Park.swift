@@ -223,13 +223,23 @@ class Park: NSObject, NSCoding, MKAnnotation {
         let imageName = aDecoder.decodeObjectForKey("imageName") as! String
         let imageSize = aDecoder.decodeObjectForKey("imageSize") as! String
         let imageType = aDecoder.decodeObjectForKey("imageType") as! String
-        let description = aDecoder.decodeObjectForKey("description") as! String
+//        let description = aDecoder.decodeObjectForKey("description") as! String
         
         self.init(parkName: parkName, parkLocation: parkLocation, dateFormed: dateFormed, area: area, link: link, location: location, imageLink: imageLink, imageName: imageName, imageSize: imageSize, imageType: imageType, parkDescription: parkDescription)
 
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
-        var x = 1
+        aCoder.encodeObject(parkName, forKey: "parkName")
+        aCoder.encodeObject(parkLocation, forKey: "parkLocation")
+        aCoder.encodeObject(dateFormed, forKey: "dateFormed")
+        aCoder.encodeObject(area, forKey: "area")
+        aCoder.encodeObject(link, forKey: "link")
+        aCoder.encodeObject(location, forKey: "location")
+        aCoder.encodeObject(imageLink, forKey: "imageLink")
+        aCoder.encodeObject(parkDescription, forKey: "parkDescription")
+        aCoder.encodeObject(imageName, forKey: "imageName")
+        aCoder.encodeObject(imageSize, forKey: "imageSize")
+        aCoder.encodeObject(imageType, forKey: "imageType")
     }
 }

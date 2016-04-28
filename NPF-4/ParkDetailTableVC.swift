@@ -82,8 +82,10 @@ class ParkDetailTableVC: UITableViewController {
             let encondedObj = NSKeyedArchiver.archivedDataWithRootObject(park)
             defaults.setObject(encondedObj, forKey: park.getParkName())
             
-            let alert = UIAlertController(title: "Favorites", message: "\(park.getParkName()) was added to Favorites", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert  = UIAlertController(title: "Favorites", message: "\(park.getParkName()) was added to Favorites", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            
         default:
             print("mierda esto no es \(indexPath.section)")
         }
