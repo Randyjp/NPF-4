@@ -1,25 +1,26 @@
 //
-//  ParkTableVC.swift
+//  ParkDetailTableVC.swift
 //  NPF-4
 //
-//  Created by Randy Perez on 4/25/16.
+//  Created by Randy Perez on 4/26/16.
 //  Copyright © 2016 Randy Perez. All rights reserved.
 //
 
 import UIKit
 
-class ParkTableVC: UITableViewController {
+let INFO_SECTION = 0
+let IMG_SECTION = 1
+let DESC_SECTION = 2
+let URL_SECTION = 3
+let MAP_SECTION = 4
+let FAV_SECTION = 5
+
+
+class ParkDetailTableVC: UITableViewController {
     
-    var mapVC:MapVC!
-    var parkList = Parks()
-    var parks : [Park] {
-        get  {
-            return self.parkList.parkList!
-        }
-        set(val) {
-            self.parkList.parkList = val
-        }
-    }
+    var park: Park!
+    var dataSource : [[String]]!
+    var zoomDelegate:ZoomimgProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,28 +41,64 @@ class ParkTableVC: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1 //I just have one section so far 
+//        return 3
+        return dataSource.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return parks.count // need a row for each park
+//        return 3 // this is only detail for one park ???
+        return dataSource[section].count
     }
 
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ParkCell", forIndexPath: indexPath)
+//        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier")
+        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier")
 
         // Configure the cell...
-        let park = parks[indexPath.row]
-        let distance = mapVC?.locationManager?.location?.distanceFromLocation(park.getLocation()!)
         
-        cell.textLabel?.text = park.getParkName()
-        cell.detailTextLabel?.text = convertStringMetersToMiles((distance?.description)!) + " miles" //subtitle for now gotta change to distance
-        cell.accessoryType = .DisclosureIndicator
-        return cell
+        if cell == nil {
+            cell = UITableViewCell(style: .Default, reuseIdentifier: "reuseIdentifier")
+        }
+        
+        cell?.textLabel?.numberOfLines = 0
+        cell?.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        cell?.textLabel?.text = dataSource[indexPath.section][indexPath.row]
+        cell?.textLabel?.textAlignment = .Center
+        
+        return cell!
     }
- 
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        switch indexPath.section {
+        case MAP_SECTION:
+            zoomDelegate?.zoomOnAnnotation(park)
+        case URL_SECTION:
+            UIApplication.sharedApplication().openURL(NSURL(string: park.getLink())!)
+        case FAV_SECTION:
+            let defaults = NSUserDefaults.standardUserDefaults()
+            let encondedObj = NSKeyedArchiver.archivedDataWithRootObject(park)
+            defaults.setObject(encondedObj, forKey: park.getParkName())
+            
+            let alert = UIAlertController(title: "Favorites", message: "\(park.getParkName()) was added to Favorites", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        default:
+            print("mierda esto no es \(indexPath.section)")
+        }
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        switch indexPath.section {
+        case DESC_SECTION:
+            return 88
+        default:
+            return 44
+        }
+    }
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -107,22 +144,5 @@ class ParkTableVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    func convertStringMetersToMiles(distance:String) -> String {
-        let meterDistance = Double(distance)
-        let milesDistance = round(meterDistance! * 0.00062137)
-        return String(milesDistance)
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let park = parks[indexPath.row]
-        let ds: [[String]] = [[park.getParkName(),park.getParkLocation(), park.getArea(), park.getDateFormed()], [park.getImageLink()], [park.getParkDescription()], [park.getLink()], ["Show MAP"], ["Add to Favorites"]]
-        let detailVC = ParkDetailTableVC(style: .Grouped)
-        detailVC.title = park.getParkName()
-        detailVC.park = park
-        detailVC.dataSource = ds
-        detailVC.zoomDelegate = mapVC
-        navigationController?.pushViewController(detailVC, animated: true)
-    }
 
 }

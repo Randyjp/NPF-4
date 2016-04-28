@@ -12,7 +12,7 @@ import MapKit
 import AddressBook
 import Contacts
 //mk anmotation is part of mapkit
-class Park: NSObject, MKAnnotation {
+class Park: NSObject, NSCoding, MKAnnotation {
     
 
     private var parkName: String = ""
@@ -207,5 +207,29 @@ class Park: NSObject, MKAnnotation {
         mapItem.name = title
         
         return mapItem
+    }
+    
+    //to enconde
+    required convenience init(coder aDecoder:NSCoder) {
+        
+        let parkName = aDecoder.decodeObjectForKey("parkName") as! String
+        let parkLocation = aDecoder.decodeObjectForKey("parkLocation") as! String
+        let dateFormed = aDecoder.decodeObjectForKey("dateFormed") as! String
+        let area = aDecoder.decodeObjectForKey("area") as! String
+        let link = aDecoder.decodeObjectForKey("link") as! String
+        let location = aDecoder.decodeObjectForKey("location") as! CLLocation!
+        let imageLink = aDecoder.decodeObjectForKey("imageLink") as! String
+        let parkDescription = aDecoder.decodeObjectForKey("parkDescription") as! String
+        let imageName = aDecoder.decodeObjectForKey("imageName") as! String
+        let imageSize = aDecoder.decodeObjectForKey("imageSize") as! String
+        let imageType = aDecoder.decodeObjectForKey("imageType") as! String
+        let description = aDecoder.decodeObjectForKey("description") as! String
+        
+        self.init(parkName: parkName, parkLocation: parkLocation, dateFormed: dateFormed, area: area, link: link, location: location, imageLink: imageLink, imageName: imageName, imageSize: imageSize, imageType: imageType, parkDescription: parkDescription)
+
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        var x = 1
     }
 }

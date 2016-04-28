@@ -11,7 +11,7 @@ import CoreLocation
 import MapKit
 import Contacts
 
-class MapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
+class MapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, ZoomimgProtocol {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var activity: UIActivityIndicatorView!
@@ -189,6 +189,11 @@ class MapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
         startUpdating()
     }
     
-    
+    func zoomOnAnnotation(annotation: MKAnnotation) {
+        tabBarController?.selectedViewController = self //Select current controller
+        let region = MKCoordinateRegionMakeWithDistance(annotation.coordinate, 5000, 5000)
+        mapView.setRegion(region, animated: true)
+        mapView.selectAnnotation(annotation, animated: true)
+    }
 
 }
