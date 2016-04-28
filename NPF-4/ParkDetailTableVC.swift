@@ -95,6 +95,7 @@ class ParkDetailTableVC: UITableViewController {
                 }
             } else {
                 array = []
+                array!.append(park.getParkName())
             }
             
             NSUserDefaults.standardUserDefaults().setObject(array, forKey: "favorites")

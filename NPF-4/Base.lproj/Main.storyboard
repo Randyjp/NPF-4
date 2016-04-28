@@ -134,13 +134,51 @@
                     <view key="view" contentMode="scaleToFill" id="goO-A4-cfF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yosemite.png" translatesAutoresizingMaskIntoConstraints="NO" id="JVi-j8-lbM">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="National Park" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g98-rs-0r0">
+                                <rect key="frame" x="193" y="37" width="214" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="225-k3-ANx">
+                                <rect key="frame" x="281" y="137" width="38" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Finder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPZ-PO-gKX">
+                                <rect key="frame" x="252" y="87" width="97" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Randy Perez" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ama-cv-btj">
+                                <rect key="frame" x="204" y="187" width="193" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oYZ-eX-0iA" firstAttribute="top" secondItem="JVi-j8-lbM" secondAttribute="bottom" id="BPn-a1-LRO"/>
+                            <constraint firstItem="JVi-j8-lbM" firstAttribute="leading" secondItem="goO-A4-cfF" secondAttribute="leadingMargin" constant="-20" id="IdS-n1-kPj"/>
+                            <constraint firstItem="JVi-j8-lbM" firstAttribute="top" secondItem="fRk-cv-UF3" secondAttribute="bottom" constant="-20" id="Ixd-5U-pwN"/>
+                            <constraint firstItem="JVi-j8-lbM" firstAttribute="leading" secondItem="goO-A4-cfF" secondAttribute="leadingMargin" constant="-20" id="Jch-6X-XII"/>
+                            <constraint firstItem="oYZ-eX-0iA" firstAttribute="top" secondItem="JVi-j8-lbM" secondAttribute="bottom" id="c8Y-dg-SyZ"/>
+                            <constraint firstItem="JVi-j8-lbM" firstAttribute="top" secondItem="fRk-cv-UF3" secondAttribute="bottom" constant="-20" id="cew-dv-ndt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JVi-j8-lbM" secondAttribute="trailing" constant="-20" id="ffb-mL-fKR"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="3" title="About" image="business.png" id="HRY-cy-4Hh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6k-iS-R9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="142" y="813"/>
+            <point key="canvasLocation" x="159" y="813"/>
         </scene>
         <!--Park TableVC-->
         <scene sceneID="lYM-FR-Qfh">
@@ -267,5 +305,6 @@
         <image name="nature.png" width="24" height="24"/>
         <image name="plus.png" width="32" height="32"/>
         <image name="shape.png" width="24" height="24"/>
+        <image name="yosemite.png" width="2048" height="1536"/>
     </resources>
 </document>
