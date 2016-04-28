@@ -11,12 +11,16 @@ import UIKit
 class FavoritesTableVC: UITableViewController {
     
     var parks: [Park]?
+    var favorites:[String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let array = NSUserDefaults.standardUserDefaults().arrayForKey("favorites") as? [String]
-        for p in array! {
-            print(p)
+        
+        if array != nil {
+            favorites = array
+        } else {
+            favorites = []
         }
 //        let defaults = NSUserDefaults.standardUserDefaults()
 //        let decoded  = defaults.objectForKey("Acadia National Park") as! NSData
@@ -47,18 +51,21 @@ class FavoritesTableVC: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return favorites!.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("FavoriteCell", forIndexPath: indexPath)
+        
         // Configure the cell...
-
+        let park = favorites![indexPath.row]
+        cell.textLabel?.text = park
+//        cell .detailTextLabel?.text = landmark.state //this is the subtitle
+        cell.accessoryType = .DisclosureIndicator
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
