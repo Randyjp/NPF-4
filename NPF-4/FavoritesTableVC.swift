@@ -91,6 +91,9 @@ class FavoritesTableVC: UITableViewController {
         
     }
     
+    @IBAction func startEditing(sender: AnyObject) {
+        self.editing = !self.editing //toggle editing mode
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -111,20 +114,23 @@ class FavoritesTableVC: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+        let itemToMove = favorites![fromIndexPath.row]
+        favorites!.removeAtIndex(fromIndexPath.row)
+        favorites!.insert(itemToMove, atIndex: toIndexPath.row)
+        NSUserDefaults.standardUserDefaults().setObject(favorites!, forKey: "favorites")
     }
-    */
 
-    /*
+
+    
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    */
+ 
 
     /*
     // MARK: - Navigation

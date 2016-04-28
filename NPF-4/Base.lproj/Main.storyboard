@@ -94,7 +94,13 @@
                             <outlet property="delegate" destination="t8o-Ze-8dh" id="MMy-Le-fBt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Favorites" id="UnB-Wc-eRN"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="UnB-Wc-eRN">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="MRz-gJ-2XT">
+                            <connections>
+                                <action selector="startEditing:" destination="t8o-Ze-8dh" id="3B1-SE-ToG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8a-8J-m1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
